@@ -30,3 +30,16 @@ GymPass style app.
 - [ ] The application data needs to be persisted in a PostgreSQL database;
 - [ ] All data lists need to be paginated with 20 items per page;
 - [ ] The user must be identified by a JWT (JSON Web Token);
+
+## App Setup
+
+To setup your dev environment do the following steps:
+
+1. Clone the repository
+2. Install the dependencies with `npm install`
+3. Create a `.env` file based on the `.env.dist` file, just copy/paste
+4. Start the local server with `npm run start:dev`
+
+It will be running on `http://localhost:3333` unless you specify a `PORT` in your `.env` file.
+
+

@@ -50,7 +50,6 @@ export class CheckInUseCase {
 
     const MAX_DISTANCE_IN_METERS = 100
 
-    console.log(distance)
     if (distance > MAX_DISTANCE_IN_METERS) {
       throw new MaxDistanceError()
     }

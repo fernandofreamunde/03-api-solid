@@ -5,6 +5,10 @@ import { Prisma, User } from '@prisma/client'
 export class InMemoryUsersRepository implements UsersRepository {
   private users: Array<User> = []
 
+  async findById(id: string): Promise<User | null> {
+    return this.users.find((user) => user.id === id) ?? null
+  }
+
   async findByEmail(email: string): Promise<User | null> {
     return this.users.find((user) => user.email === email) ?? null
   }

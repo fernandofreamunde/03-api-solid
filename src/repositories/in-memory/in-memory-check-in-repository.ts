@@ -10,6 +10,13 @@ export class InMemoryCheckInRepository implements CheckInRepository {
     return this.data.find((checkIn) => checkIn.id === id) ?? null
   }
 
+  async findManyByUserId(userId: string, page = 1): Promise<CheckIn[]> {
+    const MAX_ITEMS_PER_PAGE = 20
+    return this.data
+      .filter((checkIn) => checkIn.user_id === userId)
+      .slice((page - 1) * MAX_ITEMS_PER_PAGE, page * MAX_ITEMS_PER_PAGE)
+  }
+
   async findByUserIdOnDate(
     userId: string,
     date: Date,

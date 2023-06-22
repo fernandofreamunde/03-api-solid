@@ -20,7 +20,7 @@ export class FetchCheckInHistoryUseCase {
   }: FetchCheckInHistoryUseCaseRequest): Promise<FetchCheckInHistoryUseCaseResponse> {
     const checkIns = await this.checkInRepository.findManyByUserId(userId, page)
 
-    const total = 0 // await this.checkInRepository.countByUserId(userId)
+    const total = await this.checkInRepository.countByUserId(userId)
 
     return {
       checkIns,

@@ -10,6 +10,10 @@ export class InMemoryCheckInRepository implements CheckInRepository {
     return this.data.find((checkIn) => checkIn.id === id) ?? null
   }
 
+  async countByUserId(userId: string): Promise<number> {
+    return this.data.filter((checkIn) => checkIn.user_id === userId).length
+  }
+
   async findManyByUserId(userId: string, page = 1): Promise<CheckIn[]> {
     const MAX_ITEMS_PER_PAGE = 20
     return this.data

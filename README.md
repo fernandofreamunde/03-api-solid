@@ -27,7 +27,7 @@ GymPass style app.
 ## Non-functional Requirements
 
 - [x] The user's password needs to be encrypted;
-- [ ] The application data needs to be persisted in a PostgreSQL database;
+- [x] The application data needs to be persisted in a PostgreSQL database;
 - [ ] All data lists need to be paginated with 20 items per page;
 - [ ] The user must be identified by a JWT (JSON Web Token);
 

@@ -4,7 +4,7 @@ import { CheckInRepository } from '../check-in-repository'
 import dayjs from 'dayjs'
 
 export class InMemoryCheckInRepository implements CheckInRepository {
-  private data: Array<CheckIn> = []
+  public data: Array<CheckIn> = []
 
   async findById(id: string): Promise<CheckIn | null> {
     return this.data.find((checkIn) => checkIn.id === id) ?? null
@@ -54,6 +54,16 @@ export class InMemoryCheckInRepository implements CheckInRepository {
     }
 
     await this.data.push(checkIn)
+
+    return checkIn
+  }
+
+  async save(checkIn: CheckIn) {
+    const checkInIndex = this.data.findIndex((item) => item.id === checkIn.id)
+
+    if (checkInIndex >= 0) {
+      this.data[checkInIndex] = checkIn
+    }
 
     return checkIn
   }

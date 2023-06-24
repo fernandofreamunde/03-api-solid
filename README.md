@@ -42,4 +42,20 @@ To setup your dev environment do the following steps:
 
 It will be running on `http://localhost:3333` unless you specify a `PORT` in your `.env` file.
 
+## Tests
+
+To setup the tests you need to run, inside `prisma/vitest-environment-prisma`:
+
+```bash
+npm link
+```
+
+and then on the root folder:
+
+```bash
+npm link vitest-environment-prisma
+```
+
+if you have a permission error, try running with `sudo`.
+
 

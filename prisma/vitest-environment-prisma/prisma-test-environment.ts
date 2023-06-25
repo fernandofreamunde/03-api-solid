@@ -21,7 +21,6 @@ function generateDatabaseURL(schema: string) {
 export default <Environment>{
   name: 'prisma',
   async setup() {
-    console.log('Setting up test Environment...')
     const schema = randomUUID()
     const databaseURL = generateDatabaseURL(schema)
 
@@ -31,8 +30,6 @@ export default <Environment>{
 
     return {
       async teardown() {
-        console.log('Tearing down test Environment...')
-
         await prisma.$executeRawUnsafe(
           `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
         )

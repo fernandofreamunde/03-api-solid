@@ -8,10 +8,9 @@ export async function profile(request: FastifyRequest, reply: FastifyReply) {
     userId: request.user.sub,
   })
 
+  Reflect.deleteProperty(user, 'password_hash')
+
   return reply.status(200).send({
-    user: {
-      ...user,
-      password_hask: undefined,
-    },
+    user,
   })
 }

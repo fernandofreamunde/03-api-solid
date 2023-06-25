@@ -58,4 +58,22 @@ npm link vitest-environment-prisma
 
 if you have a permission error, try running with `sudo`.
 
+## Integrating with a Frontend Client
 
+If you need to integrate with a frontend client, you may have noticed that the refreshToken is not being set in the browser's cookies, to solve this problem, we will illustrate the solution using Axios:
+
+On the server, add the credentials property as true:
+```
+app.register(cors, {
+  origin: true,
+  credentials: true,
+})
+```
+
+On the api create or Axios requests, add the withCredentials as true:
+```
+const api = axios.create({
+  baseURL: 'http://localhost:3333',
+  withCredentials: true,
+})
+```

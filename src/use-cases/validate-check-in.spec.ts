@@ -41,7 +41,7 @@ describe('Validate Check In Use Case', () => {
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 
-  it.only('should not be able to validate the check-in after 20 mins of its creation', async () => {
+  it('should not be able to validate the check-in after 20 mins of its creation', async () => {
     vi.setSystemTime(new Date('2023-01-01T12:00:00'))
 
     const createdCheckIn = await checkInRepository.create({
